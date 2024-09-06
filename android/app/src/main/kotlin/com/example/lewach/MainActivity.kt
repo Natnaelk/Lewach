@@ -1,4 +1,4 @@
-package com.example.lewach
+package com.dastech.lewach
 
 import io.flutter.embedding.android.FlutterActivity
 

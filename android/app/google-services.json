@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "922300033138",
+    "project_id": "lewach-ee174",
+    "storage_bucket": "lewach-ee174.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922300033138:android:6ea0b25f2d873b815e7aeb",
+        "android_client_info": {
+          "package_name": "com.dastech.lewach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922300033138-b66ht4qrg4bpqd5lrbt2jh425g3ibn2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dastech.lewach",
+            "certificate_hash": "ef6deee05ead741413e9651acf38ba25dd65a7ff"
+          }
+        },
+        {
+          "client_id": "922300033138-qv5perd3j9v6bj1ok8sts9cnmev2vk0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfcjfLP5ShFLx2Iuqg26nNysREbhBU73s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922300033138-qv5perd3j9v6bj1ok8sts9cnmev2vk0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
