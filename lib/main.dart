@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lewach/firebase_options.dart';
 import 'package:lewach/view/screens/auth_screen.dart';
-import 'package:lewach/view/screens/dashboard_screen.dart';
-import 'package:lewach/view/screens/home_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+
+import 'controller/user_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    Get.put(UserController());
     return ResponsiveApp(
       builder: (_) => const GetMaterialApp(
         debugShowCheckedModeBanner: false,

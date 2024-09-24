@@ -7,7 +7,7 @@ import 'package:lewach/view/screens/sign_up_screen.dart';
 import 'package:lewach/view/widgets/common_button.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({key});
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
+            const Center(
               child: Text(
                 'Lewach',
                 style: TextStyle(
@@ -25,10 +25,10 @@ class SplashScreen extends StatelessWidget {
                     color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Center(
+            const Center(
               child: Text(
                 'Digitalizing the Traditional Ethiopian Product Exchange',
                 style: TextStyle(
@@ -37,16 +37,16 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Column(
               children: [
                 CommonButton(
                   onPressed: () {
-                    Get.to(SignInPage());
+                    Get.to(const SignInPage());
                   },
-                  child: Text('Next'),
+                  child: const Text('Next'),
                 )
               ],
             )

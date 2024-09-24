@@ -7,7 +7,7 @@ class CommonTextField extends StatelessWidget {
   final String? Function(String? text)? validator;
 
   const CommonTextField({
-    key,
+    super.key,
     required this.controller,
     required this.hintText,
     this.isObscure = false,

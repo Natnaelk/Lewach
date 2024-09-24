@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/string_extensions.dart';
 import 'package:get/route_manager.dart';
 import 'package:lewach/view/screens/dashboard_screen.dart';
@@ -8,8 +10,10 @@ import 'package:lewach/view/widgets/common_button.dart';
 import 'package:lewach/view/widgets/common_textfield.dart';
 import 'package:lewach/view/widgets/error_message.dart';
 
+import '../../controller/user_controller.dart';
+
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -32,14 +36,33 @@ class _SignUpPageState extends State<SignUpPage> {
     if (_formKey.currentState!.validate()) {
       //try to create a user
       try {
-        debugPrint("firebase");
-        UserCredential? userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: emailController.text.trim(),
-                password: passwordController.text.trim());
+        UserCredential? userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+        User? user = userCredential.user;
+        if (user != null) {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .set({
+            'uid': user.uid,
+            'email': user.email,
+            'full_name': nameController.text.trim(),
+            'phone_number': phoneController.text.trim(),
+            'createdAt': Timestamp.now(),
+          });
+        }
+
+        Get.find<UserController>().getUserData();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Successfully registered ')),
+        );
 
         // pop loading circle
 
+        Navigator.pop(context);
         Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
@@ -61,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -105,12 +128,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SignInPage(),
+                                    builder: (context) => const SignInPage(),
                                   ),
                                 );
                               },
                               child: Text(
-                                'Sign In',
+                                'SIGN UP',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleMedium!

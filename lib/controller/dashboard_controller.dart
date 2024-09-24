@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   bool isInCart = false;
-  Rx<RangeValues> costRangeValues = Rx<RangeValues>(RangeValues(0, 20000));
+  Rx<RangeValues> costRangeValues =
+      Rx<RangeValues>(const RangeValues(0, 20000));
 
   RxBool isCartIconTaped = false.obs;
   RxBool isCouponbtnTaped = false.obs;
@@ -13,11 +14,6 @@ class DashboardController extends GetxController {
   RxInt groupValuAsc = 10.obs;
   RxBool isLoading = true.obs;
   var selectedIndex = 0.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   // void checkInternetConnection2() async {
   //   if (await InternetConnectionChecker().hasConnection) {

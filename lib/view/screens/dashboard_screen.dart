@@ -12,13 +12,13 @@ import 'package:lewach/view/screens/home_screen.dart';
 class DashboardScreen extends StatefulWidget {
   final int pageIndex;
 
-  const DashboardScreen({Key? key, this.pageIndex = 0}) : super(key: key);
+  const DashboardScreen({super.key, this.pageIndex = 0});
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomeScreen(),
     BidHistoryScreen(),
-    AccountScreen()
+    const AccountScreen()
   ];
 
   @override
@@ -41,25 +41,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool _canExit = false;
+    bool canExit = false;
     final dashboardController = Get.put(DashboardController());
     return WillPopScope(
       onWillPop: () async {
-        if (_canExit) {
+        if (canExit) {
           SystemNavigator.pop();
           return true;
         } else {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text('Press back again to exit'.tr,
-                style: TextStyle(color: Colors.white)),
+                style: const TextStyle(color: Colors.white)),
             behavior: SnackBarBehavior.floating,
             backgroundColor: MyColors.primary,
-            duration: Duration(seconds: 2),
-            margin: EdgeInsets.all(3),
+            duration: const Duration(seconds: 2),
+            margin: const EdgeInsets.all(3),
           ));
-          _canExit = true;
-          Timer(Duration(seconds: 2), () {
-            _canExit = false;
+          canExit = true;
+          Timer(const Duration(seconds: 2), () {
+            canExit = false;
           });
           return false;
         }
@@ -69,7 +69,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           () =>
               DashboardScreen
                   ._widgetOptions[dashboardController.selectedIndex.value] ??
-              CircularProgressIndicator(),
+              const CircularProgressIndicator(),
         ),
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
