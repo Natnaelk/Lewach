@@ -4,7 +4,7 @@
 
 Lewach is a mobile application that digitalizes the traditional Ethiopian product exchange system, allowing users to trade goods digitally. This app is primarily designed for Ethiopian users, focusing on middle and lower-class communities, enabling them to exchange products in a modern, user-friendly way. Lewach provides a platform where users can list their products, set eligibility criteria for exchange, and trade goods seamlessly.
 
-[Deployed Site](#)  
+
 [Final Project Blog Article](#)  
 [Author's LinkedIn](https://www.linkedin.com/in/natnael-kebede-13553a197/)
 
